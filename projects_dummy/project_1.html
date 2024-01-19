@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG Changer Project</title>
+
+    <style>
+        h1{
+            font-size: 36px;
+            font-family: sans-serif;
+            font-weight: 500;
+        }
+        .container{
+            background-color: #fff;
+            width: 800px;
+            margin: auto;
+            color: black;
+            border-radius: 24px;
+            margin-top: 80px;
+        }
+        .main{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 12px;
+        }
+        .btn{
+            background-color: #000;
+            color: #fff;
+            padding: 14px 26px; 
+            margin: 8px; 
+            border-radius: 18px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        #red{
+            background-color: red;
+            color: white;
+        }
+        #green{
+            background-color: green;
+            color: #fff;
+        }
+        #yellow{
+            background-color: rgb(255, 255, 58);
+            color: #000;
+        }
+        #orange{
+            background-color: orange;
+            color: #000;
+        }
+        #pink{
+            background-color: pink;
+            color: #000;
+        }
+        .reset{
+            background-color: orange;
+            color: #000;
+            padding: 12px 18px;
+            outline: none;
+            border: none;
+            border-radius: 8px;
+            font-size: 24px;
+        }
+        #reset_parent{
+            height: 40vh;
+            display: flex;
+            align-items: end;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body style="background-color: black; color: #fff; text-align: center;">
+    <h1>BG Changer Project</h1>
+
+    <div class="container">
+        <div class="main">
+            <div id="red" class="btn">Red</div>
+            <div id="green" class="btn">Green</div>
+            <div id="yellow" class="btn">Yellow</div>
+            <div id="orange" class="btn">Orange</div>
+            <div id="pink" class="btn">Pink</div>
+        </div>
+    </div>
+
+    <div id="reset_parent">
+        <button class="reset">Reset</button>
+    </div>
+
+    <script>
+        let body = document.querySelector('body')
+        let main= document.querySelectorAll('.btn')
+        let reset = document.querySelector('.reset')
+        let h1 = document.querySelector('h1')
+        // console.log(main)
+        main.forEach((i) =>{
+            console.log(i)
+            i.addEventListener('click', function(){
+                if(i.id === 'orange' || i.id === 'yellow'){
+                    reset.style.backgroundColor = 'white'
+                    h1.style.color = '#000'
+                }else{
+                    reset.style.backgroundColor = 'orange'
+                    h1.style.color = '#fff'
+                }
+                body.style.backgroundColor = i.id;
+                
+            })
+            // body.style.backgroundColor = i.id
+        })
+
+        reset.addEventListener('click', function(){
+            body.style.backgroundColor = '#000'
+            h1.style.color = 'fff'
+        })
+    </script>
+</body>
+</html>
